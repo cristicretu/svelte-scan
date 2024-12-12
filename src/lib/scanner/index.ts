@@ -41,7 +41,6 @@ export const renderData: Writable<Map<string, RenderInfo>> = writable(
 let audioContext: AudioContext | null = null;
 
 export function playGeigerSound() {
-  console.log("Attempting to play sound...");
   try {
     if (!audioContext) {
       audioContext = new AudioContext();
@@ -63,14 +62,12 @@ export function playGeigerSound() {
       audioContext.currentTime + 0.1
     );
     oscillator.stop(audioContext.currentTime + 0.1);
-    console.log("Sound played successfully");
   } catch (error) {
     console.error("Error playing sound:", error);
   }
 }
 
 export function scanComponent(node: HTMLElement, componentName: string) {
-  console.log("Scanner initialized for component:", componentName);
   let currentProps = new Map<string, any>();
   let renderCount = 0;
   let overlayElement: HTMLElement | null = null;
@@ -79,7 +76,6 @@ export function scanComponent(node: HTMLElement, componentName: string) {
   function updateRender(
     changes: Array<{ name: string; prevValue: unknown; nextValue: unknown }>
   ) {
-    console.log("Update detected for component:", componentName, changes);
     renderCount++;
 
     renderData.update((data) => {
@@ -108,8 +104,6 @@ export function scanComponent(node: HTMLElement, componentName: string) {
   }
 
   function highlightElement(element: HTMLElement, count: number) {
-    console.log("Highlighting element:", element, "count:", count);
-
     // Remove existing overlay if any
     if (overlayElement) {
       overlayElement.remove();
@@ -179,7 +173,6 @@ export function scanComponent(node: HTMLElement, componentName: string) {
 
   return {
     update(newProps: Record<string, any>) {
-      console.log("Props update for component:", componentName, newProps);
       const changes: Array<{
         name: string;
         prevValue: unknown;
@@ -204,7 +197,6 @@ export function scanComponent(node: HTMLElement, componentName: string) {
     },
 
     destroy() {
-      console.log("Component destroyed:", componentName);
       if (overlayElement) {
         overlayElement.remove();
       }

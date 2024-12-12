@@ -21,7 +21,6 @@
 
     document.body.appendChild(outline);
 
-    // Fade out and remove
     setTimeout(() => {
       outline.style.opacity = "0";
       setTimeout(() => {
@@ -29,7 +28,6 @@
       }, 500);
     }, 500);
 
-    // Play sound
     playSound();
   }
 
@@ -45,7 +43,6 @@
       });
     });
 
-    // Start observing the entire document
     observer.observe(document.body, {
       attributes: true,
       childList: true,

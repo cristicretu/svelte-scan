@@ -6,8 +6,6 @@ interface ScanParams {
 }
 
 export function scan(node: HTMLElement, params: string | ScanParams) {
-  console.log("Scan action initialized with params:", params);
-
   if (typeof params === "string") {
     return scanComponent(node, params);
   }
@@ -20,7 +18,6 @@ export function scan(node: HTMLElement, params: string | ScanParams) {
   return {
     ...scanner,
     update(newParams: ScanParams) {
-      console.log("Scan action update:", newParams);
       scanner.update(newParams.props);
     },
   };
