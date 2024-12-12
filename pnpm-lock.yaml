@@ -25,7 +25,7 @@ importers:
         version: 3.58.0
       svelte-check:
         specifier: ^3.3.1
-        version: 3.3.1(postcss@8.4.24)(svelte@3.58.0)
+        version: 3.3.1(postcss-load-config@4.0.1(postcss@8.4.24))(postcss@8.4.24)(svelte@3.58.0)
       tailwindcss:
         specifier: ^3.3.2
         version: 3.3.2
@@ -362,9 +362,11 @@ packages:
 
   glob@7.1.6:
     resolution: {integrity: sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
@@ -379,6 +381,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -575,10 +578,11 @@ packages:
 
   rimraf@2.7.1:
     resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
-  rollup@3.26.0:
-    resolution: {integrity: sha512-YzJH0eunH2hr3knvF3i6IkLO/jTjAEwU4HoMUbQl4//Tnl3ou0e7P5SjxdDr8HQJdeUJShlbEHXrrnEHy1l7Yg==}
+  rollup@3.29.5:
+    resolution: {integrity: sha512-GVsDdsbJzzy4S/v3dqWPJ7EfvZJfCHiDqe80IyrF59LYuP+e6U1LJoUqeuqRbwAWoMNoXivMNeNAOf5E22VA1w==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
 
@@ -1150,8 +1154,9 @@ snapshots:
   postcss-load-config@4.0.1(postcss@8.4.24):
     dependencies:
       lilconfig: 2.1.0
-      postcss: 8.4.24
       yaml: 2.3.1
+    optionalDependencies:
+      postcss: 8.4.24
 
   postcss-nested@6.0.1(postcss@8.4.24):
     dependencies:
@@ -1195,7 +1200,7 @@ snapshots:
     dependencies:
       glob: 7.2.3
 
-  rollup@3.26.0:
+  rollup@3.29.5:
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -1239,7 +1244,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte-check@3.3.1(postcss@8.4.24)(svelte@3.58.0):
+  svelte-check@3.3.1(postcss-load-config@4.0.1(postcss@8.4.24))(postcss@8.4.24)(svelte@3.58.0):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.18
       chokidar: 3.5.3
@@ -1248,7 +1253,7 @@ snapshots:
       picocolors: 1.0.0
       sade: 1.8.1
       svelte: 3.58.0
-      svelte-preprocess: 5.0.4(postcss@8.4.24)(svelte@3.58.0)(typescript@5.1.6)
+      svelte-preprocess: 5.0.4(postcss-load-config@4.0.1(postcss@8.4.24))(postcss@8.4.24)(svelte@3.58.0)(typescript@5.1.6)
       typescript: 5.1.6
     transitivePeerDependencies:
       - '@babel/core'
@@ -1265,15 +1270,17 @@ snapshots:
     dependencies:
       svelte: 3.58.0
 
-  svelte-preprocess@5.0.4(postcss@8.4.24)(svelte@3.58.0)(typescript@5.1.6):
+  svelte-preprocess@5.0.4(postcss-load-config@4.0.1(postcss@8.4.24))(postcss@8.4.24)(svelte@3.58.0)(typescript@5.1.6):
     dependencies:
       '@types/pug': 2.0.6
       detect-indent: 6.1.0
       magic-string: 0.27.0
-      postcss: 8.4.24
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 3.58.0
+    optionalDependencies:
+      postcss: 8.4.24
+      postcss-load-config: 4.0.1(postcss@8.4.24)
       typescript: 5.1.6
 
   svelte@3.58.0: {}
@@ -1338,12 +1345,12 @@ snapshots:
     dependencies:
       esbuild: 0.17.19
       postcss: 8.4.24
-      rollup: 3.26.0
+      rollup: 3.29.5
     optionalDependencies:
       fsevents: 2.3.2
 
   vitefu@0.2.4(vite@4.3.9):
-    dependencies:
+    optionalDependencies:
       vite: 4.3.9
 
   wrappy@1.0.2: {}
